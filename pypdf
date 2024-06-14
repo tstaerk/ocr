@@ -1,0 +1,9 @@
+import PyPDF2
+import sys
+
+inputfile=open(sys.argv[1],"rb")
+read_pdf = PyPDF2.PdfReader(inputfile)
+for i in range(len(read_pdf.pages)):
+  page=read_pdf.pages[i]
+  page_content=page.extract_text()
+  print(page_content)
